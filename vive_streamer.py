@@ -1,4 +1,3 @@
-import zmq
 import socket
 import json
 import ctypes

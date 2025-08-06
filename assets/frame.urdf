@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot name="coordinate_frame">
+
+  <!-- X axis (Red) -->
+  <link name="x_axis">
+    <visual>
+      <origin xyz="0.05 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder length="0.1" radius="0.005" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- Y axis (Green) -->
+  <link name="y_axis">
+    <visual>
+      <origin xyz="0 0.05 0" rpy="-1.5708 0 0" />
+      <geometry>
+        <cylinder length="0.1" radius="0.005" />
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- Z axis (Blue) -->
+  <link name="z_axis">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.1" radius="0.005" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- Base link -->
+  <link name="base_link" />
+
+  <joint name="base_to_x" type="fixed">
+    <parent link="base_link" />
+    <child link="x_axis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="base_to_y" type="fixed">
+    <parent link="base_link" />
+    <child link="y_axis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="base_to_z" type="fixed">
+    <parent link="base_link" />
+    <child link="z_axis" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+</robot>
