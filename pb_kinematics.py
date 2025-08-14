@@ -216,8 +216,11 @@ class PBKinematicsModel:
             self.robot, self.mocap_link_id, self.q, self.head_pos, self.head_quat
         )  # use full kinematic chain
 
-        fused_quat = self.quaternion_filter.process_imu(imu_quat)
-        fused_quat = self.quaternion_filter.process_slam(root_quat_slam, 0.02)
+        if imu_quat is not None:
+            fused_quat = self.quaternion_filter.process_imu(imu_quat)
+            fused_quat = self.quaternion_filter.process_slam(root_quat_slam, 0.02)
+        else:
+            fused_quat = root_quat_slam
         pb.resetBasePositionAndOrientation(self.robot, root_pos, fused_quat)
         self.root_pose = np.concatenate((root_pos, fused_quat))
         return self.root_pose, root_quat_slam
