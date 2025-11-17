@@ -1,0 +1,4 @@
+ws_slam/build/
+ws_slam/install/
+ws_slam/log/
+**/mat_pre.txt
